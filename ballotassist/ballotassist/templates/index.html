@@ -43,16 +43,18 @@
 							    </tr>
 							  </thead>
 							  <tbody>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Mark</td>
-							      <td>Otto</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">2</th>
-							      <td>Jacob</td>
-							      <td>@fat</td>
-							    </tr>
+							  	{% if records|length < 1 %}
+							  		<tr>
+								      <th scope="row" colspan="3" style="text-align: center;">No records on display</th>
+								    </tr>
+								{% endif %}
+							  	{% for record in records %}
+								    <tr>
+								      <th scope="row">{{ forloop.counter }}</th>
+								      <td>{{ record.balloters_name }}</td>
+								      <td>{{ record.ballotees_name }}</td>
+								    </tr>
+							    {% endfor %}
 							  </tbody>
 							</table>
 						</div>
