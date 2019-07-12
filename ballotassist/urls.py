@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from ballotassist import views as ballotviews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'', ballotviews.main, name='homepage'),
 ]
